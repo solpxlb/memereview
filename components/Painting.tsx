@@ -17,25 +17,15 @@ interface PaintingProps {
 export default function Painting({ coin, position, rotation = [0, 0, 0], onEnter, onLeave }: PaintingProps) {
     const meshRef = useRef<Mesh>(null);
 
-    // Load texture
-    let texture;
-    try {
-        texture = useLoader(TextureLoader, coin.image);
-    } catch (error) {
-        // Fallback if image doesn't exist
-        texture = null;
-    }
+    // Load texture with proper error handling
+    const texture = useLoader(TextureLoader, coin.image);
 
     return (
         <group position={position} rotation={rotation}>
             {/* Main painting plane */}
             <mesh ref={meshRef}>
                 <planeGeometry args={[2, 2]} />
-                {texture ? (
-                    <meshStandardMaterial map={texture} />
-                ) : (
-                    <meshStandardMaterial color="#666666" />
-                )}
+                <meshStandardMaterial map={texture} />
             </mesh>
 
             {/* Gold frame */}
