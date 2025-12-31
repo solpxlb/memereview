@@ -1,17 +1,55 @@
 'use client';
 
 import Link from 'next/link';
+import { useState, useRef, useEffect } from 'react';
 
 export default function Home() {
+    const [isMuted, setIsMuted] = useState(true);
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    useEffect(() => {
+        // Attempt to autoplay when component mounts
+        if (videoRef.current) {
+            videoRef.current.play().catch((error) => {
+                console.log('Autoplay prevented:', error);
+            });
+        }
+    }, []);
+
+    const toggleMute = () => {
+        if (videoRef.current) {
+            videoRef.current.muted = !isMuted;
+            setIsMuted(!isMuted);
+        }
+    };
+
     return (
         <main className="landing-page">
             {/* Background Video */}
             <div className="video-background">
-                <video autoPlay loop playsInline className="bg-video">
+                <video
+                    ref={videoRef}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="bg-video"
+                    poster="/memereview_pfp.png"
+                    preload="auto"
+                >
                     <source src="/memereview.mp4" type="video/mp4" />
                 </video>
                 <div className="video-overlay"></div>
             </div>
+
+            {/* Unmute Button */}
+            <button
+                onClick={toggleMute}
+                className="unmute-button"
+                aria-label={isMuted ? "Unmute video" : "Mute video"}
+            >
+                {isMuted ? '🔇' : '🔊'}
+            </button>
 
             {/* Hero Content */}
             <div className="hero-content">
