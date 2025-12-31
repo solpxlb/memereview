@@ -72,18 +72,17 @@ export default function Home() {
                     <div className="ca-section">
                         <span className="ca-label">Contract Address:</span>
                         <div className="ca-box">
-                            <span className="ca-text">Coming Soon</span>
-                            {/* Uncomment when CA is ready:
-              <button 
-                className="copy-button"
-                onClick={() => {
-                  navigator.clipboard.writeText('YOUR_CA_HERE');
-                  alert('CA copied to clipboard!');
-                }}
-              >
-                📋
-              </button>
-              */}
+                            <span className="ca-text">2kZbF...qpump</span>
+                            <button
+                                className="copy-button"
+                                onClick={() => {
+                                    navigator.clipboard.writeText('2kZbFtZE9aWj2VS8eWYzioKwt6cPs9Rqv7F7P2fqpump');
+                                    alert('CA copied to clipboard!');
+                                }}
+                                title="Copy full address"
+                            >
+                                📋
+                            </button>
                         </div>
                     </div>
 
