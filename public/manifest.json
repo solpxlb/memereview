@@ -1,0 +1,24 @@
+{
+    "name": "Meme Review",
+    "short_name": "Meme Review",
+    "description": "A Year of Chaos, Controversy & Crypto Degeneracy. Explore the biggest memecoins of 2025 in an immersive 3D gallery experience.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#667eea",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/memereview_pfp.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/memereview_pfp.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}
