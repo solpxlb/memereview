@@ -34,7 +34,7 @@ export default function Paintings({ onActivePaintingChange }: PaintingsProps) {
         <>
             {coins.map((coin, index) => (
                 <Painting
-                    key={coin.name}
+                    key={coin.month}
                     coin={coin}
                     position={paintingPositions[index].position}
                     rotation={paintingPositions[index].rotation}
